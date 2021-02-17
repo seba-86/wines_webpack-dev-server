@@ -1,5 +1,5 @@
 class WinesController < ApplicationController
-  before_action :set_wine, only: %i[ show edit update destroy ]
+  before_action :set_wine, only: %i[ show edit update destroy assembly_destroy]
 
   # GET /wines or /wines.json
   def index
@@ -14,6 +14,7 @@ class WinesController < ApplicationController
   def new
     @wine = Wine.new
     @strains = Strain.all
+    
   end
 
   # GET /wines/1/edit
@@ -25,7 +26,7 @@ class WinesController < ApplicationController
   def create
     
     @wine = Wine.new(wine_params)
-
+   
     respond_to do |format|
       if @wine.save
         format.html { redirect_to wines_path, notice: "Wine was successfully created." }
@@ -59,12 +60,10 @@ class WinesController < ApplicationController
     end
   end
 
-   #Borrar la relacion 
-  #  def destroy_strain
-  #   @strain = Strain.find(params[:strain_id])
-  #   @wine.strains.delete(@strain)
-  #   redirect_to root_path
-  #  end
+   def assembly_destroy
+    @strain = Assembly.strain(params[:id])
+    redirect_to root_path
+   end
 
 
   private
@@ -75,7 +74,7 @@ class WinesController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def wine_params
-      params.require(:wine).permit(:name, {strain_ids:[]})
+      params.require(:wine).permit(:name, :percentage, {strain_ids:[]})
 
       # {strain_ids[]}
     end

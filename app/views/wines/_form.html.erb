@@ -17,12 +17,20 @@
   </div>
 
   <div class="field">
-    <%= form.label :strains, 'Cepas' %>
-    <br>
-    <%= form.collection_check_boxes(:strain_ids, @strains, :id, :name) do |b|%>
-    <label class="form-check" type="radio"><%= b.label class:"label-check_box" do%></label>
-      <%= b.check_box + b.text %>
-  <% end %>
+    
+      <%= form.label :strains, 'Cepas' %>
+      <br>
+      <%= form.collection_check_boxes(:strain_ids, @strains, :id, :name) do |b|%>
+      <label><%= b.label class:"label-check_box" do%></label>
+        <%= b.check_box + b.text %>
+    <% end %>
+    
+    <div class="d-inline">
+      <%= form.label :percentage %>
+      <%= form.number_field :percentage%>
+    </div>
+    
+
   <% end %>
 
   </div>
