@@ -1,4 +1,7 @@
-<div class="nested-fields">
+  <div class="field">
+    <%= f.label :strain_id %>
+    <%= f.select :strain_id, options_from_collection_for_select(Strain.all, :id, :name), prompt: "Seleciona.."%>
+  </div>
   <div class="field">
     <%= f.label :percentage %>
     <br/>
@@ -6,4 +9,4 @@
   </div>
 
   <%= link_to_remove_association "remove task", f %>
-</div>
+

@@ -14,6 +14,7 @@ class WinesController < ApplicationController
   def new
     @wine = Wine.new
     @strains = Strain.all
+    
   end
 
   # GET /wines/1/edit
