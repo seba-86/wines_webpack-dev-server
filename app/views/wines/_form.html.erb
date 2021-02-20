@@ -22,11 +22,20 @@
     <%= form.collection_check_boxes(:strain_ids, @strains, :id, :name) do |b|%>
     <label class="form-check" type="radio"><%= b.label class:"label-check_box" do%></label>
       <%= b.check_box + b.text %>
+  <% end %>  
+  
   <% end %>
-  <% end %>
+  </div>
+
+  <div id="assemblies">
+    <%= form.fields_for :assemblies do |assembly|%>
+    <%= render 'assembly_fields', f: assembly %>
+  <%end %>
+  <div class="links">
+    <%= link_to_add_association "Agregar % de cepas", form, :assemblies %>
+  </div>
 
   </div>
-  
 
   <div class="actions">
     <%= form.submit 'Crear Vino',class:"btn btn-primary"%>

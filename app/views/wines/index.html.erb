@@ -19,10 +19,17 @@
         <td>
           <ul>
             <%wine.assemblies.each do |assem| %>
-            <li><%= assem.strain.name %> <%= link_to "x",  method: :delete %></li>
-          <% end %>
+            <li><%= assem.strain.name %></li>
+            <% end %>
           </ul>
-        </td>
+        </td>  
+        <!-- <td>
+          <ul>
+            <%wine.assemblies.each do |assembly| %>
+            <li><%= assembly.percentage %></li>
+          <%end %>
+          </ul>
+        </td> -->
         <td><%= link_to 'Show', wine %></td>
         <td><%= link_to 'Edit', edit_wine_path(wine) %></td>
         <td><%= link_to 'Destroy', wine, method: :delete, data: { confirm: 'Are you sure?' } %></td>
