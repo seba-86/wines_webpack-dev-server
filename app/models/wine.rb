@@ -7,5 +7,9 @@ class Wine < ApplicationRecord
         self.strains.pluck(:name)
     end
 
+    def percentage_wine
+        self.assemblies.pluck(:percentage)
+    end
+
     
 end

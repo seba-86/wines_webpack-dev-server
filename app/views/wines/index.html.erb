@@ -9,6 +9,7 @@
       <tr>
         <th>Name</th>
         <th>Cepas con pluck en el modelo</th>
+        <th>Percentage_model_pluck</th>
         <th>Cepas con modelo intermedio</th>
         <th>Percentage</th>
         <th colspan="3"></th>
@@ -20,6 +21,7 @@
         <tr>
           <td><%= wine.name %></td>
           <td class="text-success"><%= wine.name_cepa.join(' & ') %></td>
+        <td><%= wine.percentage_wine.join(" % ")%>%</td>
           <td>
             <ul>
               <%wine.assemblies.each do |assem| %>
